@@ -30,10 +30,11 @@ kg_milled = st.number_input("Milled Maize (kg DM/day)", value=1.0)
 
 # 🔢 Calculations
 maintenance = 0.55 * (liveweight ** 0.75)
-milk_energy = milk_solids * 5.2
+milk_energy = milk_solids * 82
+liveweight_gain_energy = 50  # If gaining weight, e.g. autumn cows
 walk_energy = 0.75 * walking
 pregnancy_energy = 20 if pregnant else 0
-base_energy = maintenance + milk_energy + walk_energy + pregnancy_energy
+base_energy = maintenance + milk_energy + walk_energy + pregnancy_energy + liveweight_gain_energy
 buffer_energy = base_energy * (buffer_percent / 100)
 total_me_required = base_energy + buffer_energy
 
